@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Separator?>
+
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.uastw.energy.client.EnergyController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Energy Data Visualization Client" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+    
+    <HBox spacing="15.0" alignment="CENTER">
+        <Button fx:id="btnCurrentHour" text="Get Current Energy Data" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button fx:id="btnHistoricData" text="Get Historic Energy Data" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </HBox>
+    
+    <Separator />
+    
+    <VBox spacing="10.0">
+        <Label text="Current Energy Data:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+        <TextArea fx:id="taCurrentResult" prefHeight="120.0" prefWidth="600.0" editable="false" wrapText="true" 
+                  style="-fx-background-color: #ecf0f1; -fx-border-color: #bdc3c7;" />
+    </VBox>
+    
+    <VBox spacing="10.0">
+        <Label text="Historic Energy Data:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+        <TableView fx:id="tableHistoric" prefHeight="200.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colTimestamp" text="Timestamp" prefWidth="300.0" />
+                <TableColumn fx:id="colLeistung" text="Power (kW)" prefWidth="299.0" />
+            </columns>
+        </TableView>
+    </VBox>
+    
+    <Label fx:id="lblStatus" text="Ready - Click a button to fetch data" 
+           style="-fx-font-style: italic; -fx-text-fill: #7f8c8d;" />
+</VBox> 
