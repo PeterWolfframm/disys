@@ -43,15 +43,11 @@ public class EnergyProducerService {
         this.webClient = webClientBuilder.baseUrl(weatherApiUrl).build();
     }
 
-    @Scheduled(fixedRate = 5000) // Switched to 5 seconds for more frequent data
+    @Scheduled(fixedRate = 5000) 
     public void sendEnergyMessage() {
-        // Weather API call is temporarily disabled.
-        // To re-enable, uncomment the line below and remove the random generation logic.
-        // fetchWeatherAndProduceEnergy().block();
-
-        // --- Start of temporary random data generation ---
+      
         log.info("Generating random energy data because weather API is disabled.");
-        double kwh = 0.001 + (0.005 - 0.001) * random.nextDouble(); // Random value between 0.001 and 0.005
+        double kwh = 0.001 + (0.005 - 0.001) * random.nextDouble(); 
 
         EnergyMessage message = new EnergyMessage(
                 "PRODUCER",
@@ -85,13 +81,12 @@ public class EnergyProducerService {
                     double productionRange = maxProduction - baseProduction;
                     double producedKwh = maxProduction - (productionRange * (cloudiness / 100.0));
 
-                    // Add a small random factor
                     producedKwh = producedKwh * (0.9 + 0.2 * random.nextDouble()); // +/- 10% randomization
 
                     EnergyMessage message = new EnergyMessage(
                             "PRODUCER",
                             "COMMUNITY",
-                            Math.max(0, producedKwh), // ensure it's not negative
+                            Math.max(0, producedKwh),
                             LocalDateTime.now()
                     );
 
@@ -103,7 +98,6 @@ public class EnergyProducerService {
     }
 
 
-    // DTO for Weather API Response
     private static class WeatherResponse {
         private Clouds clouds;
 
