@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/energy-rest-api/pom.xml" />
         <option value="$PROJECT_DIR$/energy-javafx-client/pom.xml" />
+        <option value="$PROJECT_DIR$/energy-producer/pom.xml" />
       </list>
     </option>
   </component>
