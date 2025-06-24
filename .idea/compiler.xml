@@ -8,6 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="energy-javafx-client" />
         <module name="energy-rest-api" />
+        <module name="energy-percentage-service" />
+        <module name="energy-usage-service" />
+        <module name="energy-user" />
         <module name="energy-producer" />
       </profile>
     </annotationProcessing>
@@ -17,7 +20,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="energy-percentage-service" options="-parameters" />
       <module name="energy-producer" options="-parameters" />
+      <module name="energy-usage-service" options="-parameters" />
+      <module name="energy-user" options="-parameters" />
       <module name="remove" options="-parameters" />
     </option>
   </component>

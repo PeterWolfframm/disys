@@ -1,0 +1,6 @@
+at/uastw/energy/usageservice/repository/EnergyUsageRepository.class
+at/uastw/energy/usageservice/model/EnergyMessage.class
+at/uastw/energy/usageservice/EnergyUsageServiceApplication.class
+at/uastw/energy/usageservice/service/UsageService.class
+at/uastw/energy/usageservice/config/RabbitMQConfig.class
+at/uastw/energy/usageservice/model/EnergyUsage.class

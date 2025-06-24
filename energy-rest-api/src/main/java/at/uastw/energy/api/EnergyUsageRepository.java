@@ -16,4 +16,6 @@ public interface EnergyUsageRepository extends JpaRepository<EnergyUsage, Long> 
     List<EnergyUsage> findByHourBetween(@Param("start") LocalDateTime start, @Param("end") LocalDateTime end);
     
     Optional<EnergyUsage> findByHour(LocalDateTime hour);
+
+    Optional<EnergyUsage> findFirstByOrderByHourDesc();
 } 
