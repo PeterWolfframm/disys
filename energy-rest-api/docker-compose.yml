@@ -4,6 +4,7 @@ services:
     ports:
       - '5432:5432'
     environment:
+      - POSTGRES_DB=disysdb
       - POSTGRES_USER=disysuser
       - POSTGRES_PASSWORD=disyspw
 
@@ -12,3 +13,6 @@ services:
     ports:
       - '5672:5672'
       - '15672:15672'
+    environment:
+      - RABBITMQ_DEFAULT_USER=disysuser
+      - RABBITMQ_DEFAULT_PASS=disyspw
