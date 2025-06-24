@@ -3,44 +3,55 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.uastw.energy.client.EnergyController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label text="Energy Data Visualization Client" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+    <Label text="Energy Community Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+    <GridPane hgap="10" vgap="10" style="-fx-padding: 10; -fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-border-radius: 5; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+        </columnConstraints>
+        <Label text="Community Pool:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+        <Label fx:id="lblCommunityPool" text="N/A" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+        <Label text="Grid Portion:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+        <Label fx:id="lblGridPortion" text="N/A" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+    </GridPane>
     
-    <HBox spacing="15.0" alignment="CENTER">
-        <Button fx:id="btnCurrentHour" text="Get Current Energy Data" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
-        <Button fx:id="btnHistoricData" text="Get Historic Energy Data" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" />
-    </HBox>
-    
-    <Separator />
-    
-    <VBox spacing="10.0">
-        <Label text="Current Energy Data:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
-        <TextArea fx:id="taCurrentResult" prefHeight="120.0" prefWidth="600.0" editable="false" wrapText="true" 
-                  style="-fx-background-color: #ecf0f1; -fx-border-color: #bdc3c7;" />
+    <Button fx:id="btnRefresh" text="Refresh Current Data" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+
+    <VBox spacing="10.0" alignment="CENTER">
+        <Label text="Historical Data" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="Start Date:"/>
+            <DatePicker fx:id="dpStartDate" />
+            <Label text="End Date:"/>
+            <DatePicker fx:id="dpEndDate" />
+            <Button fx:id="btnShowData" text="Show Data" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" />
+        </HBox>
     </VBox>
+
+    <TableView fx:id="tableHistoricalUsage" prefHeight="300.0" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="colHour" text="Hour" prefWidth="150.0" />
+            <TableColumn fx:id="colCommunityProduced" text="Community Produced (kWh)" prefWidth="175.0" />
+            <TableColumn fx:id="colCommunityUsed" text="Community Used (kWh)" prefWidth="175.0" />
+            <TableColumn fx:id="colGridUsed" text="Grid Used (kWh)" prefWidth="150.0" />
+        </columns>
+    </TableView>
     
-    <VBox spacing="10.0">
-        <Label text="Historic Energy Data:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
-        <TableView fx:id="tableHistoric" prefHeight="200.0" prefWidth="600.0">
-            <columns>
-                <TableColumn fx:id="colTimestamp" text="Timestamp" prefWidth="300.0" />
-                <TableColumn fx:id="colLeistung" text="Power (kW)" prefWidth="299.0" />
-            </columns>
-        </TableView>
-    </VBox>
-    
-    <Label fx:id="lblStatus" text="Ready - Click a button to fetch data" 
-           style="-fx-font-style: italic; -fx-text-fill: #7f8c8d;" />
+    <Label fx:id="lblStatus" text="Ready" style="-fx-font-style: italic; -fx-text-fill: #7f8c8d;" />
 </VBox> 
