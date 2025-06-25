@@ -1,0 +1,4 @@
+at/uastw/energy/producer/service/EnergyProducerService.class
+at/uastw/energy/producer/RabbitMQConfig.class
+at/uastw/energy/producer/EnergyProducerApplication.class
+at/uastw/energy/producer/model/EnergyMessage.class

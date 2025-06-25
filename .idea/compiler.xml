@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="energy-javafx-client" />
         <module name="energy-rest-api" />
         <module name="energy-percentage-service" />
         <module name="energy-usage-service" />
@@ -15,6 +14,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="energy-javafx-client" target="21" />
       <module name="remove" target="21" />
     </bytecodeTargetLevel>
   </component>
